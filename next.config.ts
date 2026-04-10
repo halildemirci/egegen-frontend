@@ -1,9 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  turbopack: {
-    root: "C:/Users/Halil Demirci/Documents/GitHub/egegen-front-end",
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

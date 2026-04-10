@@ -7,6 +7,7 @@ import type {
   FieldType,
   Product,
   ProductFormData,
+  ProductSpecificFieldInput,
   Variation,
   VariationGroup,
 } from '@/types';
@@ -425,7 +426,6 @@ export function ProductForm({
       await onSubmit({
         ...formData,
         slug,
-        selectedProductTypeTemplateIds: [],
         variationGroups: formData.variationGroups.map((group, groupIndex) => ({
           ...group,
           sortOrder: groupIndex,
@@ -788,7 +788,7 @@ export function ProductForm({
                         setFormData((current) => ({
                           ...current,
                           productSpecificFields: current.productSpecificFields.map((f, i) =>
-                            i === index ? { ...f, value: e.target.value } : f
+                            i === index ? { ...f, value: e.target.value } as ProductSpecificFieldInput : f
                           ),
                         }))
                       }
@@ -801,7 +801,7 @@ export function ProductForm({
                         setFormData((current) => ({
                           ...current,
                           productSpecificFields: current.productSpecificFields.map((f, i) =>
-                            i === index ? { ...f, value: v } : f
+                            i === index ? { ...f, value: v } as ProductSpecificFieldInput : f
                           ),
                         }))
                       }
@@ -821,7 +821,7 @@ export function ProductForm({
                         setFormData((current) => ({
                           ...current,
                           productSpecificFields: current.productSpecificFields.map((f, i) =>
-                            i === index ? { ...f, value: v } : f
+                            i === index ? { ...f, value: v } as ProductSpecificFieldInput : f
                           ),
                         }))
                       }
@@ -850,7 +850,7 @@ export function ProductForm({
                                 setFormData((current) => ({
                                   ...current,
                                   productSpecificFields: current.productSpecificFields.map((f, i) =>
-                                    i === index ? { ...f, value: next } : f
+                                    i === index ? { ...f, value: next } as ProductSpecificFieldInput : f
                                   ),
                                 }));
                               }}

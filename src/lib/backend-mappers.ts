@@ -147,7 +147,7 @@ function mapDynamicFields(productData: UnknownRecord): AppliedDynamicField[] {
   const genericFields = asArray<UnknownRecord>(productData.fields);
   const productSpecificRaw = asArray<UnknownRecord>(
     (productData as UnknownRecord).product_specific_fields
-  ).map((f) => ({ ...f, scope_type: 'product' }));
+  ).map((f) => ({ ...f, scope_type: 'product' } as UnknownRecord));
   const fields = [
     ...genericFields,
     ...productSpecificRaw.filter(
@@ -378,12 +378,8 @@ export function mapFrontendProductToBackendPayload(input: unknown) {
     status: String(inputData.status ?? 'draft'),
     seo_title: String(inputData.seoTitle ?? ''),
     seo_description: String(inputData.seoDescription ?? ''),
-    selected_global_template_ids: asArray<string>(
-      inputData.selectedGlobalTemplateIds
-    ).map((value) => Number(value)),
-    selected_product_type_template_ids: asArray<string>(
-      inputData.selectedProductTypeTemplateIds
-    ).map((value) => Number(value)),
+    selected_global_template_ids: [],
+    selected_product_type_template_ids: [],
     field_values: fieldValues,
     product_specific_fields: productSpecificFields.map((field) => {
       const base = {

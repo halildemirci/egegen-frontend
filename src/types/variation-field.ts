@@ -35,6 +35,7 @@ export interface AppliedDynamicField extends DynamicFieldTemplate {
 }
 
 export interface ProductSpecificFieldInput {
+  _reactKey?: string;
   id?: string;
   key: string;
   label: string;

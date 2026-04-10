@@ -58,9 +58,6 @@ export interface ProductFormData {
   status: ProductStatus;
   seoTitle: string;
   seoDescription: string;
-  selectedGlobalTemplateIds: string[];
-  selectedProductTypeTemplateIds: string[];
-  fieldValues: Record<string, string | string[] | boolean>;
   productSpecificFields: ProductSpecificFieldInput[];
   variationGroups: VariationGroup[];
   variations: Variation[];

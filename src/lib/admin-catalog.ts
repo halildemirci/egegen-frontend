@@ -35,14 +35,6 @@ export function buildAdminProductFormData(input: ProductFormData) {
   appendScalar(formData, 'seo_title', input.seoTitle);
   appendScalar(formData, 'seo_description', input.seoDescription);
 
-  (input.selectedGlobalTemplateIds ?? []).forEach((id, index) => {
-    appendScalar(formData, `selected_global_template_ids[${index}]`, id);
-  });
-
-  Object.entries(input.fieldValues ?? {}).forEach(([fieldId, value]) => {
-    appendFieldValue(formData, `field_values[${fieldId}]`, value);
-  });
-
   input.productSpecificFields.forEach((field, index) => {
     appendScalar(formData, `product_specific_fields[${index}][id]`, field.id);
     appendScalar(formData, `product_specific_fields[${index}][key]`, field.key);

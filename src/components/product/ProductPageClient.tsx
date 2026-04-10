@@ -90,7 +90,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
                       </Label>
 
                       {field.fieldType === 'select' && (
-                        <Select value={String(selected)} onValueChange={setSelected}>
+                        <Select value={String(selected)} onValueChange={(v) => setSelected(v ?? '')}>
                           <SelectTrigger className="w-full">
                             <SelectValue placeholder="Seçin…" />
                           </SelectTrigger>
@@ -105,7 +105,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
                       {field.fieldType === 'radio' && (
                         <RadioGroup
                           value={String(selected)}
-                          onValueChange={setSelected}
+                          onValueChange={(v) => setSelected(v ?? '')}
                           className="flex flex-wrap gap-4"
                         >
                           {field.options.map((opt) => (
